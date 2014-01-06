@@ -1,4 +1,4 @@
-# Dotfiles (Nicolas Gallagher)
+# Dotfiles
 
 My OS X dotfiles.
 
@@ -7,15 +7,11 @@ My OS X dotfiles.
 
 The installation step requires the [XCode Command Line
 Tools](https://developer.apple.com/downloads) and may overwrite existing
-dotfiles in your HOME and `.vim` directories.
+dotfiles in your HOME directory.
 
 ```bash
-$ bash -c "$(curl -fsSL raw.github.com/necolas/dotfiles/master/bin/dotfiles)"
+$ bash -c "$(curl -fsSL raw.github.com/pjeweb/dotfiles/master/bin/dotfiles)"
 ```
-
-N.B. If you wish to fork this project and maintain your own dotfiles, you must
-substitute my username for your own in the above command and the 2 variables
-found at the top of the `bin/dotfiles` script.
 
 ## How to update
 
@@ -55,49 +51,6 @@ Options:
 
 
 ## Features
-
-### Automatic software installation
-
-Homebrew formulae:
-
-* GNU core utilities
-* [git](http://git-scm.com/)
-* [ack](http://betterthangrep.com/)
-* bash (latest version)
-* [bash-completion](http://bash-completion.alioth.debian.org/)
-* ffmpeg
-* graphicsmagick
-* jpeg
-* [macvim](http://code.google.com/p/macvim/)
-* [node](http://nodejs.org/)
-* [optipng](http://optipng.sourceforge.net/)
-* [phantomjs](http://phantomjs.org/)
-* rsync (latest version, rather than the out-dated OS X installation)
-* [tree](http://mama.indstate.edu/users/ice/tree/)
-* [wget](http://www.gnu.org/software/wget/)
-
-Node packages:
-
-* [bower](http://bower.io/)
-* [gify](https://github.com/visionmedia/node-gify)
-* [grunt-cli](http://gruntjs.com/)
-* [jshint](http://www.jshint.com/)
-* [karma](http://karma-runner.github.io/)
-* [yo](http://yeoman.io/)
-
-Vim plugins:
-
-* [ctrlp.vim](https://github.com/kien/ctrlp.vim)
-* [html5.vim](https://github.com/othree/html5.vim)
-* [mustache.vim](https://github.com/juvenn/mustache.vim)
-* [syntastic](https://github.com/scrooloose/syntastic)
-* [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
-* [vim-git](https://github.com/tpope/vim-git)
-* [vim-haml](https://github.com/tpope/vim-haml)
-* [vim-javascript](https://github.com/pangloss/vim-javascript)
-* [vim-less](https://github.com/groenewege/vim-less)
-* [vim-markdown](https://github.com/tpope/vim-markdown)
-* [vim-pathogen](https://github.com/tpope/vim-pathogen)
 
 ### Custom OS X defaults
 
@@ -160,11 +113,7 @@ Screenshot:
 
 ![](http://i.imgur.com/DSJ1G.png)
 
-### Local/private Bash and Vim configuration
-
-Any special-case Vim directives local to a machine should be stored in a
-`~/.vimrc.local` file on that machine. The directives will then be automatically
-imported into your master `.vimrc`.
+### Local/private Bash configuration
 
 Any private and custom Bash commands and configuration should be placed in a
 `~/.bash_profile.local` file. This file will not be under version control or
@@ -196,73 +145,3 @@ alias code="cd ~/Code"
 N.B. Because the `git/gitconfig` file is copied to `~/.gitconfig`, any private
 git configuration specified in `~/.bash_profile.local` will not be committed to
 your dotfiles repository.
-
-### Custom location for Homebrew installation
-
-If your Homebrew installation is not in `/usr/local` then you must prepend your
-custom installation's `bin` to the PATH in a file called `~/.dotfilesrc`:
-
-```bash
-# Add `brew` command's custom location to PATH
-PATH="/opt/acme/bin:$PATH"
-```
-
-
-## Adding new git submodules
-
-If you want to add more git submodules, e.g., Vim plugins to be managed by
-pathogen, then follow these steps while in the root of the superproject.
-
-```bash
-# Add the new submodule
-git submodule add https://example.com/remote/path/to/repo.git vim/bundle/one-submodule
-# Initialize and clone the submodule
-git submodule update --init
-# Stage the changes
-git add vim/bundle/one-submodule
-# Commit the changes
-git commit -m "Add a new submodule: one-submodule"
-```
-
-
-## Updating git submodules
-
-Updating individual submodules within the superproject:
-
-```bash
-# Change to the submodule directory
-cd vim/bundle/one-submodule
-# Checkout the desired branch (of the submodule)
-git checkout master
-# Pull from the tip of master (of the submodule - could be any sha or pointer)
-git pull origin master
-# Go back to main dotfiles repo root
-cd ../../..
-# Stage the submodule changes
-git add vim/bundle/one-submodule
-# Commit the submodule changes
-git commit -m "Update submodule 'one-submodule' to the latest version"
-# Push to a remote repository
-git push origin master
-```
-
-Now, if anyone updates their local repository from the remote repository, then
-using `git submodule update` will update the submodules (that have been
-initialized) in their local repository. N.B This will wipe away any local
-changes made to those submodules.
-
-
-## Acknowledgements
-
-Inspiration and code was taken from many sources, including:
-
-* [@mathiasbynens](https://github.com/mathiasbynens) (Mathias Bynens)
-  [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
-* [@tejr](https://github.com/tejr) (Tom Ryder)
-  [https://github.com/tejr/dotfiles](https://github.com/tejr/dotfiles)
-* [@gf3](https://github.com/gf3) (Gianni Chiappetta)
-  [https://github.com/gf3/dotfiles](https://github.com/gf3/dotfiles)
-* [@cowboy](https://github.com/cowboy) (Ben Alman)
-  [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles)
-* [@alrra](https://github.com/alrra) (Cãtãlin Mariş)
-  [https://github.com/alrra/dotfiles](https://github.com/alrra/dotfiles)
