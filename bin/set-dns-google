@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo networksetup -setdnsservers pje-wifi 8.8.8.8 8.8.4.4 10.0.0.6
+

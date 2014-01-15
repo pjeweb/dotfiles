@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo networksetup -setdnsservers pje-wifi 208.122.23.23 208.122.23.22 10.0.0.6
+
