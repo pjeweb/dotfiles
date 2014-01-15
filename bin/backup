@@ -58,4 +58,7 @@ sudo bless -folder "$DST"/System/Library/CoreServices
 # Update the backup's cache
 # sudo update_dyld_shared_cache -force -root "$DST"
 
+# Eject backup disk
+diskutil eject pje-disk0-backup
+
 exit 0
