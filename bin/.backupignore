@@ -1,5 +1,6 @@
 .Spotlight-*/
 .Trashes
+.MobileBackups
 /afs/*
 /automount/*
 /cores/*
