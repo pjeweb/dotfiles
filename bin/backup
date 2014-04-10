@@ -36,6 +36,10 @@ if [ ! -w "$DST" ]; then
     exit;
 fi
 
+loger -t $PROG "Shut Spotlight for backup volume"
+
+mdutil -E -i off "$SRC"
+
 logger -t $PROG "Start rsync"
 
 sudo rsync --acls \
