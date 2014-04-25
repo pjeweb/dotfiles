@@ -36,9 +36,9 @@ if [ ! -w "$DST" ]; then
     exit;
 fi
 
-loger -t $PROG "Shut Spotlight for backup volume"
+logger -t $PROG "Shut Spotlight for backup volume"
 
-mdutil -E -i off "$SRC"
+mdutil -E -i off "$DST"
 
 logger -t $PROG "Start rsync"
 
